@@ -1,3 +1,6 @@
+//TODO figure out permission issues with nginx and selinux
+//disabling selinux seems to fix the problem, but that isn't a solution
+
 packer {
   required_plugins {
     amazon = {
