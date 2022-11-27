@@ -64,8 +64,8 @@ build {
       "sudo setenforce 1",
       "rm go-server-${var.gocd_version}.noarch.rpm",
       "rm go-agent-${var.gocd_version}.noarch.rpm",
-      "sudo systemctl start go-server",
-      "sudo systemctl start go-agent",
+      //"sudo systemctl start go-server",
+      //"sudo systemctl start go-agent",
     ]
   }
 }
