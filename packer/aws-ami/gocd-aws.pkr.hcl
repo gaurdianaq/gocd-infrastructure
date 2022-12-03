@@ -46,6 +46,11 @@ build {
     "source.amazon-ebs.fedora"
   ]
 
+  provisioner "file" {
+    source = "../../cruise-config.xml"
+    destionation = "~/cruise-config.xml"
+  }
+
   provisioner "shell" {
     inline = [
       "sudo dnf -y install wget",
@@ -64,8 +69,9 @@ build {
       "sudo setenforce 1",
       "rm go-server-${var.gocd_version}.noarch.rpm",
       "rm go-agent-${var.gocd_version}.noarch.rpm",
-      //"sudo systemctl start go-server",
-      //"sudo systemctl start go-agent",
+      "sudo rm /etc/go/cruise-config.xml",
+      "sudo mv ~/cruise-config.xml /etc/go/cruise-config.xml",
+      "sudo rm ~/cruise-config.xml"
     ]
   }
 }

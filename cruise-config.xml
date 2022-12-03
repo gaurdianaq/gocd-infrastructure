@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cruise xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="cruise-config.xsd" schemaVersion="139">
+  <server agentAutoRegisterKey="bbbb39db-854c-4bf2-99a9-342b20bbc7b7" webhookSecret="0363c8fa-3a60-4d12-b0eb-8eb7223d1d7a" serverId="721c4873-3736-4817-a40e-f4079d0c4c04" tokenGenerationKey="76cad400-a7e6-4479-9512-2e68212884ef">
+    <artifacts>
+      <artifactsDir>artifacts</artifactsDir>
+    </artifacts>
+  </server>
+  <config-repos>
+    <config-repo id="astrojs-highscore" pluginId="yaml.config.plugin">
+      <git url="https://github.com/gaurdianaq/astrojs-highscore-website" branch="main" />
+      <rules>
+        <allow action="refer" type="*">*</allow>
+      </rules>
+    </config-repo>
+  </config-repos>
+  <secretConfigs>
+    <secretConfig id="credentials" pluginId="cd.go.secrets.file-based-plugin">
+      <configuration>
+        <property>
+          <key>SecretsFilePath</key>
+          <value>/secrets/secrets</value>
+        </property>
+      </configuration>
+      <rules>
+        <allow action="refer" type="*">*</allow>
+      </rules>
+      <description>credentials</description>
+    </secretConfig>
+  </secretConfigs>
+  <pipelines group="default" />
+  <environments>
+    <environment name="astrojs-highscore-site" />
+  </environments>
+</cruise>
